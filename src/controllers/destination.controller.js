@@ -78,4 +78,11 @@ const getDestinations = asyncHandler(async (req, res) => {
 
   return res.status(200).json(new ApiResponse(200, data, "data fetched"));
 });
-export { postDestination, getDestinations };
+const getDestinationsbyid = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const data = await Destinations.findById(id);
+
+  return res.status(200).json(new ApiResponse(200, data, "data fetched"));
+});
+
+export { postDestination, getDestinations, getDestinationsbyid };
