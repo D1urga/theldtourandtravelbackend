@@ -18,6 +18,7 @@ const postDestination = asyncHandler(async (req, res) => {
     threestar,
     breakfast,
     transfers,
+    isbestselling,
     sightseeing,
     watersports,
     duration,
@@ -33,6 +34,7 @@ const postDestination = asyncHandler(async (req, res) => {
       ittitle,
       itdes,
       fivestar,
+      isbestselling,
       fourstar,
       threestar,
       breakfast,
@@ -62,6 +64,7 @@ const postDestination = asyncHandler(async (req, res) => {
     fourstar,
     threestar,
     breakfast,
+    isbestselling,
     transfers,
     sightseeing,
     watersports,
@@ -74,7 +77,12 @@ const postDestination = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, data, "posted successfully"));
 });
 const getDestinations = asyncHandler(async (req, res) => {
-  const data = await Destinations.find({});
+  const data = await Destinations.find({ isbestselling: false });
+
+  return res.status(200).json(new ApiResponse(200, data, "data fetched"));
+});
+const getDestinationsBestSeller = asyncHandler(async (req, res) => {
+  const data = await Destinations.find({ isbestselling: true });
 
   return res.status(200).json(new ApiResponse(200, data, "data fetched"));
 });
@@ -85,4 +93,9 @@ const getDestinationsbyid = asyncHandler(async (req, res) => {
   return res.status(200).json(new ApiResponse(200, data, "data fetched"));
 });
 
-export { postDestination, getDestinations, getDestinationsbyid };
+export {
+  postDestination,
+  getDestinations,
+  getDestinationsbyid,
+  getDestinationsBestSeller,
+};

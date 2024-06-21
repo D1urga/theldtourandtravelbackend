@@ -55,6 +55,10 @@ const destinationSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    isbestselling: {
+      type: String,
+      required: true,
+    },
     breakfast: {
       type: String,
       required: true,
