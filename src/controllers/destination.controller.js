@@ -3,6 +3,7 @@ import { ApiResponse } from "../utils/apiResponse.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiError } from "../utils/apiError.js";
 import { Destinations } from "../models/destination.model.js";
+import { ObjectId } from "bson";
 
 const postDestination = asyncHandler(async (req, res) => {
   const {
@@ -93,9 +94,18 @@ const getDestinationsbyid = asyncHandler(async (req, res) => {
   return res.status(200).json(new ApiResponse(200, data, "data fetched"));
 });
 
+const deleteDestination = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const data = await Destinations.findByIdAndDelete(id);
+  return res
+    .status(200)
+    .json(new ApiResponse(200, data, "deleted succeessfully"));
+});
+
 export {
   postDestination,
   getDestinations,
   getDestinationsbyid,
   getDestinationsBestSeller,
+  deleteDestination,
 };

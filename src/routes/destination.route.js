@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+  deleteDestination,
   getDestinations,
   getDestinationsBestSeller,
   getDestinationsbyid,
@@ -16,4 +17,5 @@ router
 router.route("/getDestination").get(getDestinations);
 router.route("/getDestinationBestSelling").get(getDestinationsBestSeller);
 router.route("/getDestinationbyid/:id").get(getDestinationsbyid);
+router.route("/deleteDestination/:id").delete(deleteDestination);
 export default router;

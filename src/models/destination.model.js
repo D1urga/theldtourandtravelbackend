@@ -13,36 +13,26 @@ const destinationSchema = new mongoose.Schema(
 
     description: {
       type: String,
-      required: true,
     },
     cityTags: {
       type: String,
-      required: true,
     },
     originalCost: {
       type: String,
-      required: true,
     },
     discountCost: {
       type: String,
-      required: true,
     },
     duration: {
       type: String,
-      required: true,
     },
     distance: {
       type: String,
-      required: true,
     },
     ittitle: {
       type: String,
-      required: true,
     },
-    itdes: {
-      type: String,
-      required: true,
-    },
+    itdes: {},
     fivestar: {
       type: String,
       required: true,
@@ -61,19 +51,15 @@ const destinationSchema = new mongoose.Schema(
     },
     breakfast: {
       type: String,
-      required: true,
     },
     transfers: {
       type: String,
-      required: true,
     },
     sightseeing: {
       type: String,
-      required: true,
     },
     watersports: {
       type: String,
-      required: true,
     },
   },
   { timestamps: true },
