@@ -77,7 +77,7 @@ const postDestination = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, data, "posted successfully"));
 });
 const getDestinations = asyncHandler(async (req, res) => {
-  const data = await Destinations.find({ isbestselling: false });
+  const data = await Destinations.find({});
 
   return res.status(200).json(new ApiResponse(200, data, "data fetched"));
 });
